@@ -1,0 +1,40 @@
+
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="char_full.css">
+<div id="charBox" style="width: 200px; height: 200px; display: grid; place-items: center; background: rgba(0,0,0,0.2);">
+  <div class="char state-idle0 head-mage_hat weapon-dagger" id="char">
+    <div class="layer base"></div>
+    <div class="layer head"></div>
+    <div class="layer mainhand"></div>
+  </div>
+</div>
+<div style="margin-top:12px; font: 14px sans-serif;">
+  <button onclick="setState('state-idle0')">Idle 0</button>
+  <button onclick="setState('state-idle1')">Idle 1</button>
+  <button onclick="setState('state-idle2')">Idle 2</button>
+  <button onclick="setState('state-idle-combat0')">Combat Idle</button>
+  <button onclick="setState('state-walk')">Walk</button>
+  <button onclick="setWeapon('weapon-dagger')">Dagger</button>
+  <button onclick="setWeapon('weapon-spear')">Spear</button>
+</div>
+<script>
+const el = document.getElementById('char');
+function setState(s){
+  el.classList.remove('state-idle0','state-idle1','state-idle2','state-idle-combat0','state-idle-combat1','state-idle-combat2','state-walk');
+  el.classList.add(s);
+}
+function setWeapon(w){
+  el.classList.remove('weapon-dagger','weapon-spear');
+  el.classList.add(w);
+}
+// 80/10/10: insert alt idle for ~3s every 30s if not walking
+let alt = 1;
+setInterval(()=>{
+  if (el.classList.contains('state-walk')) return;
+  const target = 'state-idle' + alt;
+  setState(target);
+  setTimeout(()=> setState('state-idle0'), 3000);
+  alt = (alt === 1 ? 2 : 1);
+}, 30000);
+</script>

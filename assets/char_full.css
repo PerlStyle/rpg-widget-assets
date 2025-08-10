@@ -1,0 +1,54 @@
+
+/* Unified character spritesheet controller (128x128, 6 frames) */
+.char { position: relative; width: 128px; height: 128px; }
+.char .layer { position: absolute; inset: 0; image-rendering: pixelated; background-repeat: no-repeat; background-position: 0 0; }
+
+@keyframes step6 { from { background-position: 0 0; } to { background-position: -768px 0; } }
+
+/* Walk loop (fast), Idle loop (slower) */
+.char.state-walk   .layer { animation: step6 0.75s steps(6) infinite; }
+.char.state-idle0  .layer,
+.char.state-idle1  .layer,
+.char.state-idle2  .layer,
+.char.state-idle-combat0 .layer,
+.char.state-idle-combat1 .layer,
+.char.state-idle-combat2 .layer { animation: step6 2.0s steps(6) infinite; }
+
+/* Equipment visibility */
+.char.state-idle0 .layer.mainhand,
+.char.state-idle1 .layer.mainhand,
+.char.state-idle2 .layer.mainhand { display: none; } /* mascot mode */
+.char.state-idle-combat0 .layer.mainhand,
+.char.state-idle-combat1 .layer.mainhand,
+.char.state-idle-combat2 .layer.mainhand { display: block; }
+
+/* Head selection (add more later) */
+.char.head-mage_hat .layer.head { background-image: url('sheets/head_mage_hat_walk.png'); }
+
+/* Mainhand weapon selection (default dagger) */
+.char.weapon-dagger .layer.mainhand { background-image: url('sheets/weapons_dagger_walk.png'); }
+.char.weapon-spear  .layer.mainhand { background-image: url('sheets/weapons_spear_walk.png'); }
+
+/* Base walk mapping (constant) */
+.char .layer.base { background-image: url('sheets/base_default_walk.png'); }
+
+/* When in WALK state use walk sheets for head/weapon via the classes above. */
+
+/* IDLE state mappings: use per-variant sheets for base+head */
+.char.state-idle0 .layer.base { background-image: url('sheets/base_idle0.png'); }
+.char.state-idle0 .layer.head { background-image: url('sheets/head_idle0.png'); }
+
+.char.state-idle1 .layer.base { background-image: url('sheets/base_idle1.png'); }
+.char.state-idle1 .layer.head { background-image: url('sheets/head_idle1.png'); }
+
+.char.state-idle2 .layer.base { background-image: url('sheets/base_idle2.png'); }
+.char.state-idle2 .layer.head { background-image: url('sheets/head_idle2.png'); }
+
+.char.state-idle-combat0 .layer.base { background-image: url('sheets/base_idle_combat0.png'); }
+.char.state-idle-combat0 .layer.head { background-image: url('sheets/head_idle_combat0.png'); }
+
+.char.state-idle-combat1 .layer.base { background-image: url('sheets/base_idle_combat1.png'); }
+.char.state-idle-combat1 .layer.head { background-image: url('sheets/head_idle_combat1.png'); }
+
+.char.state-idle-combat2 .layer.base { background-image: url('sheets/base_idle_combat2.png'); }
+.char.state-idle-combat2 .layer.head { background-image: url('sheets/head_idle_combat2.png'); }
