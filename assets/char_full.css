@@ -23,32 +23,32 @@
 .char.state-idle-combat2 .layer.mainhand { display: block; }
 
 /* Head selection (add more later) */
-.char.head-mage_hat .layer.head { background-image: url('sheets/head_mage_hat_walk.png'); }
+.char.head-mage_hat .layer.head { background-image:url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/head_mage_hat_walk.png'); }
 
 /* Mainhand weapon selection (default dagger) */
-.char.weapon-dagger .layer.mainhand { background-image: url('sheets/weapons_dagger_walk.png'); }
-.char.weapon-spear  .layer.mainhand { background-image: url('sheets/weapons_spear_walk.png'); }
+.char.weapon-dagger .layer.mainhand { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/weapons_dagger_walk.png'); }
+.char.weapon-spear  .layer.mainhand { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/weapons_spear_walk.png'); }
 
 /* Base walk mapping (constant) */
-.char .layer.base { background-image: url('sheets/base_default_walk.png'); }
+.char .layer.base { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/base_default_walk.png'); }
 
 /* When in WALK state use walk sheets for head/weapon via the classes above. */
 
 /* IDLE state mappings: use per-variant sheets for base+head */
-.char.state-idle0 .layer.base { background-image: url('sheets/base_idle0.png'); }
-.char.state-idle0 .layer.head { background-image: url('sheets/head_idle0.png'); }
+.char.state-idle0 .layer.base { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/base_idle0.png'); }
+.char.state-idle0 .layer.head { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/head_idle0.png'); }
 
-.char.state-idle1 .layer.base { background-image: url('sheets/base_idle1.png'); }
-.char.state-idle1 .layer.head { background-image: url('sheets/head_idle1.png'); }
+.char.state-idle1 .layer.base { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/base_idle1.png'); }
+.char.state-idle1 .layer.head { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/head_idle1.png'); }
 
-.char.state-idle2 .layer.base { background-image: url('sheets/base_idle2.png'); }
-.char.state-idle2 .layer.head { background-image: url('sheets/head_idle2.png'); }
+.char.state-idle2 .layer.base { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/base_idle2.png'); }
+.char.state-idle2 .layer.head { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/head_idle2.png'); }
 
-.char.state-idle-combat0 .layer.base { background-image: url('sheets/base_idle_combat0.png'); }
-.char.state-idle-combat0 .layer.head { background-image: url('sheets/head_idle_combat0.png'); }
+.char.state-idle-combat0 .layer.base { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/base_idle_combat0.png'); }
+.char.state-idle-combat0 .layer.head { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/head_idle_combat0.png'); }
 
-.char.state-idle-combat1 .layer.base { background-image: url('sheets/base_idle_combat1.png'); }
-.char.state-idle-combat1 .layer.head { background-image: url('sheets/head_idle_combat1.png'); }
+.char.state-idle-combat1 .layer.base { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/base_idle_combat1.png'); }
+.char.state-idle-combat1 .layer.head { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/head_idle_combat1.png'); }
 
-.char.state-idle-combat2 .layer.base { background-image: url('sheets/base_idle_combat2.png'); }
-.char.state-idle-combat2 .layer.head { background-image: url('sheets/head_idle_combat2.png'); }
+.char.state-idle-combat2 .layer.base { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/base_idle_combat2.png'); }
+.char.state-idle-combat2 .layer.head { background-image: url('https://perlstyle.github.io/rpg-widget-assets/assets/sheets/head_idle_combat2.png'); }
