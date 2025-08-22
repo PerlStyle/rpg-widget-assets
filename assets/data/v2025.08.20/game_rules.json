@@ -1,0 +1,10 @@
+{
+  "dice": { "sides": 20, "criticalHit": 20, "criticalMiss": 1 },
+  "combat": { "baseHitChance": 10, "baseDamage": { "min": 1, "max": 4 }, "levelModifier": 0.1 },
+  "classes": {
+    "warrior": { "baseHP": 12, "baseAttack": 3, "baseDefense": 2 },
+    "mage":    { "baseHP":  8, "baseAttack": 1, "baseDefense": 1 },
+    "rogue":   { "baseHP": 10, "baseAttack": 2, "baseDefense": 1 }
+  },
+  "loot": { "dropChance": 0.3, "rarityWeights": { "common": 70, "uncommon": 20, "rare": 8, "legendary": 2 } }
+}

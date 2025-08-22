@@ -1,0 +1,5 @@
+RPG Widget v1.0.0 – 2025-08-20- LAST
+- New: theme switching (default, winter, neon) via manifest/field
+- New: versioned mechanics/items data (v2025.08.20)
+- Command: !patchnotes shows these notes in overlay
+- QoL: positionable modules (character/minimap/log) + idle bob

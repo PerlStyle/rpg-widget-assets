@@ -1,0 +1,17 @@
+{
+  "weapons": {
+    "dagger":  { "tier": "common", "stats": { "attack": 2, "defense": 1 } },
+    "spear":   { "tier": "common", "stats": { "attack": 3, "defense": 0 } }
+  },
+  "armor": {
+    "cloth":   { "tier": "common", "slots": ["head","chest","gloves","boots","pants"], "critMod": 0.1 },
+    "leather": { "tier": "common", "critMod": 0.0 },
+    "plate":   { "tier": "common", "critMod": -0.1 }
+  },
+  "sets": {
+    "Apprentice": {
+      "pieces": ["cloth_head","cloth_chest","cloth_gloves","cloth_boots","cloth_pants"],
+      "bonuses": { "2": {"attack":1}, "3": {"defense":1}, "5": {"attack":2,"defense":2} }
+    }
+  }
+}

@@ -1,0 +1,169 @@
+<script>
+(async () => {
+  const MF_URL = "https://perlstyle.github.io/rpg-widget-assets/assets/manifest.json";
+  const mf = await fetch(MF_URL, { cache:"no-store" }).then(r=>r.json());
+
+  // Fields (all optional): widgetVersion, dataVersion, themeName
+  const F = window.fieldData || {};
+  const scriptVer = (F.widgetVersion && mf.scripts[F.widgetVersion]) ? F.widgetVersion : mf.latestScript;
+  const dataVer   = (F.dataVersion   && mf.data[F.dataVersion])       ? F.dataVersion   : mf.latestData;
+  const theme     = (F.themeName     && mf.themes[F.themeName])       ? F.themeName     : "default";
+
+  // Load theme CSS
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = mf.themes[theme] || mf.themes.default;
+  document.head.appendChild(link);
+
+  // Pass data URLs to the widget JS
+  window.__RPG_BOOTSTRAP__ = {
+    rulesUrl: mf.data[dataVer].rules,
+    itemsUrl: mf.data[dataVer].items,
+    patchUrl: mf.data[dataVer].patchnotes,
+    patchLatest: mf.patchLatest,
+    versions: { scriptVer, dataVer, theme }
+  };
+
+  // Load widget JS (versioned)
+  const s = document.createElement('script');
+  s.src = mf.scripts[scriptVer];
+  document.head.appendChild(s);
+
+  // Optional: auto-update unpinned instances when latestScript changes
+  if (!F.widgetVersion) {
+    setInterval(async () => {
+      try {
+        const m2 = await fetch(MF_URL, { cache:"no-store" }).then(r=>r.json());
+        if (m2.latestScript !== scriptVer) location.reload();
+      } catch {}
+    }, 5*60*1000);
+  }
+})();
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Widget</title>
+    <link rel="stylesheet" href="widget.css">
+<link rel="stylesheet" href="/assets/char_full.css">
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+        
+        #gameContainer {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: transparent;
+        }
+        
+        #minimap {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #333;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+        }
+        
+        #gameLog {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 400px;
+            height: 150px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            color: #fff;
+            font-size: 12px;
+            overflow-y: auto;
+        }
+        
+        #playerStats {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            color: #fff;
+            font-size: 11px;
+            min-width: 200px;
+        }
+        
+        .stat-bar {
+            width: 100%;
+            height: 8px;
+            background: #333;
+            border-radius: 4px;
+            margin: 2px 0;
+            overflow: hidden;
+        }
+        
+        .stat-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        .hp-bar { background: #e74c3c; }
+        .xp-bar { background: #3498db; }
+        
+        .floating-text {
+            position: absolute;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            pointer-events: none;
+            animation: floatUp 2s ease-out forwards;
+        }
+        
+        @keyframes floatUp {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-50px); }
+        }
+        
+        .damage { color: #e74c3c; }
+        .heal { color: #2ecc71; }
+        .critical { color: #f39c12; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <div id="charBox">
+        <div class="char state-idle0 head-mage_hat weapon-dagger" id="char">
+            <div class="layer base"></div>
+            <div class="layer head"></div>
+            <div class="layer mainhand"></div>
+        </div>
+    </div>
+    <div id="gameContainer">
+        <div id="minimap">
+            <canvas id="mapCanvas" width="196" height="196"></canvas>
+        </div>
+        
+        <div id="playerStats">
+            <div id="activePlayer">No active player</div>
+            <div class="stat-bar"><div class="stat-fill hp-bar" id="hpBar" style="width: 100%"></div></div>
+            <div class="stat-bar"><div class="stat-fill xp-bar" id="xpBar" style="width: 0%"></div></div>
+        </div>
+        
+        <div id="gameLog">
+            <div>RPG Widget loaded - waiting for commands...</div>
+        </div>
+    </div>
+    
+    <script src="widget.js"></script>
+</body>
+</html>

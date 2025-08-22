@@ -1,0 +1,21 @@
+{
+  "latestScript": "1.0.0",
+  "latestData": "v2025.08.20",
+  "scripts": {
+    "1.0.0": "https://perlstyle.github.io/rpg-widget-assets/assets/widget/v1.0.0/widget.js",
+    "1.0.1": "https://perlstyle.github.io/rpg-widget-assets/assets/widget/v1.0.1/widget.js"
+  },
+  "data": {
+    "v2025.08.20": {
+      "rules": "https://perlstyle.github.io/rpg-widget-assets/assets/data/v2025.08.20/game_rules.json",
+      "items": "https://perlstyle.github.io/rpg-widget-assets/assets/data/v2025.08.20/items.json",
+      "patchnotes": "https://perlstyle.github.io/rpg-widget-assets/assets/data/v2025.08.20/patchnotes.txt"
+    }
+  },
+  "themes": {
+    "default": "https://perlstyle.github.io/rpg-widget-assets/assets/themes/default/char_full.css",
+    "winter":  "https://perlstyle.github.io/rpg-widget-assets/assets/themes/winter/char_full.css",
+    "neon":    "https://perlstyle.github.io/rpg-widget-assets/assets/themes/neon/char_full.css"
+  },
+  "patchLatest": "https://perlstyle.github.io/rpg-widget-assets/assets/data/latest/patchnotes.txt"
+}
